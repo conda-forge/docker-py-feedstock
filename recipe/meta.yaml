@@ -1,7 +1,7 @@
 {%set name = "docker-py" %}
-{%set version = "1.8.1" %}
+{%set version = "1.10.5" %}
 {%set hash_type = "sha256" %}
-{%set hash_val = "4f47a05e677472b5e022be1ab1dfd91b473ab3fc14a6b71337042ac2caaafa0b" %}
+{%set hash_val = "bdd6ccefc6221bf7711eac65a0488efb95bd8afb5d993eb7e038237d325724c0" %}
 
 package:
   name: {{ name }}
@@ -25,11 +25,13 @@ requirements:
 
   run:
     - python
-    - requests >=2.5.2
+    - requests >=2.11.1
     - six >=1.4.0
     - websocket-client >=0.32.0
+    - docker-pycreds  >=0.2.1
     - ssl_match_hostname >=3.5  # [py<35]
     - ipaddress >=1.0.16  # [py<33]
+    - pypiwin32 >=219  # [win32]
 
 test:
   imports:
@@ -37,7 +39,7 @@ test:
     - docker.api
     - docker.auth
     - docker.ssladapter
-    - docker.unixconn
+    - docker.transport.unixconn
     - docker.utils
     - docker.utils.ports
 
@@ -49,3 +51,4 @@ about:
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - ocefpaf
