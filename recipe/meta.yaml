@@ -39,7 +39,7 @@ test:
     - docker.api
     - docker.auth
     - docker.ssladapter
-    - docker.unixconn
+    - docker.transport.unixconn
     - docker.utils
     - docker.utils.ports
 
