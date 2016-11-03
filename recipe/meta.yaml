@@ -1,16 +1,13 @@
-{%set name = "docker-py" %}
-{%set version = "1.10.5" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "bdd6ccefc6221bf7711eac65a0488efb95bd8afb5d993eb7e038237d325724c0" %}
+{% set version = "1.10.6" %}
 
 package:
-  name: {{ name }}
+  name: docker-py
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  {{ hash_type }}: {{ hash_val }}
+  fn: docker-py-{{ version }}.tar.gz
+  url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
+  sha256: dd1aa55dbe507538318e51e5303077d146d5176abd6b05fe9bcde24c289410bc
 
 build:
   skip: True  # [win32]
@@ -22,7 +19,6 @@ requirements:
   build:
     - python
     - setuptools
-
   run:
     - python
     - requests >=2.11.1
