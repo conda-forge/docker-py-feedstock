@@ -1,4 +1,4 @@
-{% set version = "1.10.6" %}
+{% set version = "2.0.2" %}
 
 package:
   name: docker-py
@@ -7,7 +7,7 @@ package:
 source:
   fn: docker-py-{{ version }}.tar.gz
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
-  sha256: dd1aa55dbe507538318e51e5303077d146d5176abd6b05fe9bcde24c289410bc
+  sha256: 1d4a9f65c1e70aec5501c4d84486e3c0d9d0a0dbaa66b48e91f50a108a5c6b9c
 
 build:
   skip: True  # [win32]
@@ -34,7 +34,7 @@ test:
     - docker
     - docker.api
     - docker.auth
-    - docker.ssladapter
+    - docker.tls
     - docker.transport.unixconn
     - docker.utils
     - docker.utils.ports
@@ -42,9 +42,12 @@ test:
 about:
   home: https://github.com/docker/docker-py/
   license: Apache 2.0
+  license_file: LICENSE
   summary: 'Python client for Docker.'
 
 extra:
   recipe-maintainers:
     - pmlandwehr
     - ocefpaf
+    - scopatz
+
