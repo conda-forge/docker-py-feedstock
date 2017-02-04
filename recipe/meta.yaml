@@ -36,9 +36,9 @@ test:
     - docker.api
     - docker.auth
     - docker.tls
-    - docker.transport.unixconn
     - docker.utils
     - docker.utils.ports
+    - docker.transport.unixconn
 
 about:
   home: https://github.com/docker/docker-py/
