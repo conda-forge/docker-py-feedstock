@@ -1,4 +1,4 @@
-{% set version = "2.5.1" %}
+{% set version = "3.0.1" %}
 
 package:
   name: docker-py
@@ -7,13 +7,13 @@ package:
 source:
   fn: docker-py-{{ version }}.tar.gz
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
-  sha256: 136338dbe7b9d8d1c24a6f968f43566e23b79ce1dfbcd33c6a201985b702c4e0
+  sha256: 2bbe978777a4bc73112879cd7f14853c75e8a77234bb85e8e652074ee4bfc4a6
 
 build:
   skip: True  # [win32]
   # win32 requires pypiwin32, which we don't have a build of.
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
@@ -22,13 +22,25 @@ requirements:
     - pip
   run:
     - python
-    - requests >=2.11.1
-    - six >=1.4.0
+    - requests >=2.14.2
+    - six >=1.10.0
     - websocket-client >=0.32.0
     - docker-pycreds  >=0.2.1
     - ssl_match_hostname >=3.5  # [py<35]
-    - ipaddress >=1.0.16  # [py<33]
+    - ipaddress >=1.0.18  # [py<33]
     - pypiwin32 >=219  # [win32]
+    - appdirs >=1.4.3
+    - asn1crypto >=0.22.0
+    - cffi >=1.10.0
+    - cryptography >=1.9
+    - docker-pycreds >=0.2.1
+    - enum34 >=1.1.6  # [py<34]
+    - idna >=2.5
+    - packaging >=16.8
+    - pycparser >=2.17
+    - pyopenssl >=17.0.0
+    - pyparsing >=2.2.0
+    - websocket-client >=0.40.0
 
 test:
   imports:
@@ -51,3 +63,4 @@ extra:
     - pmlandwehr
     - ocefpaf
     - scopatz
+    - mariusvniekerk
