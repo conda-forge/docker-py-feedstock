@@ -5,7 +5,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: docker-py-{{ version }}.tar.gz
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
   sha256: b6e8ceb809f321bb84a8bfb3d6efe5b97aeadf294d15fc1be515dac4f2d752a9
 
@@ -18,7 +17,6 @@ build:
 requirements:
   build:
     - python
-    - setuptools
     - pip
   run:
     - python
