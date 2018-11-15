@@ -11,7 +11,7 @@ source:
 build:
   skip: True  # [win32]
   # win32 requires pypiwin32, which we don't have a build of.
-  number: 1000
+  number: 1001
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -23,7 +23,7 @@ requirements:
     - requests >=2.14.2
     - six >=1.10.0
     - websocket-client >=0.32.0
-    - docker-pycreds  >=0.2.1
+    - docker-pycreds  >=0.3.0
     - ssl_match_hostname >=3.5  # [py<35]
     - ipaddress >=1.0.18  # [py<33]
     - pypiwin32 >=219  # [win32]
