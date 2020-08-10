@@ -1,4 +1,4 @@
-{% set version = "4.2.2" %}
+{% set version = "4.3.0" %}
 
 package:
   name: docker-py
@@ -6,9 +6,7 @@ package:
 
 source:
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
-  sha256: a687018176321fccf25e051307b01ba070fca36ba0fdfcf563fb418d1dbab2c3
-  patches:
-    - pywin32.patch
+  sha256: 45548f9f5a23e5bff6a42449d1c8aeb8bbbc7466e9dd3df3fa2fee66f0124616
 
 build:
   skip: true  # [win32 or win and py<36 or win and py>=38]
@@ -28,7 +26,7 @@ requirements:
     - docker-pycreds  >=0.3.0
     - ssl_match_hostname >=3.5  # [py<35]
     - ipaddress >=1.0.18  # [py<33]
-    - pywin32 223  # [win and py>=36]
+    - pywin32 227  # [win and py>=36]
     - appdirs >=1.4.3
     - asn1crypto >=0.22.0
     - cffi >=1.10.0
