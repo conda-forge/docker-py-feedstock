@@ -1,4 +1,4 @@
-{% set version = "4.2.2" %}
+{% set version = "4.3.0" %}
 
 package:
   name: docker-py
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
-  sha256: a687018176321fccf25e051307b01ba070fca36ba0fdfcf563fb418d1dbab2c3
+  sha256: 45548f9f5a23e5bff6a42449d1c8aeb8bbbc7466e9dd3df3fa2fee66f0124616
   patches:
     - pywin32.patch
 
