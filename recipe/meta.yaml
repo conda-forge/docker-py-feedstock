@@ -9,9 +9,7 @@ source:
   sha256: e28b9033c165e622562782691234bd1ac2da13d59bc60b389ecb9b7a3d297d43
 
 build:
-  skip: true  # [win32 or win and py<36 or win and py>=38]
-  # docker-py requires pypiwin32==219 when py<36, which we don't have a build of.
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
