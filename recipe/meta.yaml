@@ -1,4 +1,4 @@
-{% set version = "5.0.0" %}
+{% set version = "5.0.1" %}
 
 package:
   name: docker-py
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
-  sha256: 07513d7407f1c9a232a2e497714d8083c303afae388d7cadbe47fb973e65b63c
+  sha256: bfa2b3f2c5c03e6a56c0cb59b7a9ddffb094eff2b2dc2348323c680b081d5350
 
 build:
   number: 0
