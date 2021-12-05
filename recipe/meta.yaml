@@ -27,7 +27,7 @@ requirements:
     - docker-pycreds  >=0.3.0
     - ssl_match_hostname >=3.5  # [py<35]
     - ipaddress >=1.0.18  # [py<33]
-    - pywin32 227  # [win and py>=36]
+    - pywin32 >=227,<400  # [win and py>=36]
     - appdirs >=1.4.3
     - asn1crypto >=0.22.0
     - cffi >=1.10.0
