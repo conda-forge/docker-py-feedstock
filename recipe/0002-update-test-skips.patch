@@ -1,4 +1,3 @@
-Adapted from https://github.com/docker/docker-py/pull/2857/commits/2e8975698eb3bc36cb037e601ee798eace9bcc53
 --- tests/integration/api_container_test.py.orig	2021-12-04 22:08:38.000000000 -0800
 +++ tests/integration/api_container_test.py	2021-12-04 22:10:29.000000000 -0800
 @@ -1,6 +1,7 @@
