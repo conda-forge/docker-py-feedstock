@@ -1,3 +1,4 @@
+Adapted from https://github.com/docker/docker-py/pull/2857/commits/2e8975698eb3bc36cb037e601ee798eace9bcc53
 --- setup.py.orig	2021-12-04 22:06:22.000000000 -0800
 +++ setup.py	2021-12-04 22:07:01.000000000 -0800
 @@ -16,7 +16,7 @@
