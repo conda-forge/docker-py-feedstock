@@ -1,4 +1,4 @@
-{% set version = "5.0.3" %}
+{% set version = "6.0.0" %}
 
 package:
   name: docker-py
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
-  sha256: 0035772df94a86e8db02aac363393755584383aacf50d37b0d55ea817149e1f4
+  sha256: d890ed171ba5e6615cb529abd7b59087ea05650b01d8ff8622ae23c67086be5b
   patches:
     # Adapted from https://github.com/docker/docker-py/pull/2857/commits/2e8975698eb3bc36cb037e601ee798eace9bcc53
     # These patches can be dropped when the upstream PR is merged and released.
@@ -14,7 +14,7 @@ source:
     - 0002-update-test-skips.patch
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
