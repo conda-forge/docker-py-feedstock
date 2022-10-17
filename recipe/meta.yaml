@@ -25,7 +25,7 @@ requirements:
     - requests >=2.26.0
     - urllib3 >=1.26.0
     - websocket-client >=0.32.0
-    - pywin32-on-windows >=304
+    - pywin32-on-windows
     - paramiko >=2.4.3
 
 test:
