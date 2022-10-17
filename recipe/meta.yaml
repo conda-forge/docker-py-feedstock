@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/docker-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/d/docker/docker-{{ version }}.tar.gz
   sha256: 19e330470af40167d293b0352578c1fa22d74b34d3edf5d4ff90ebc203bbb2f1
 
 build:
