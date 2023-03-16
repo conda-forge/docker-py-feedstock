@@ -8,47 +8,39 @@ source:
   url: https://github.com/docker/docker-py/archive/{{ version }}.tar.gz
   sha256: 0035772df94a86e8db02aac363393755584383aacf50d37b0d55ea817149e1f4
   patches:
-    # Adapted from https://github.com/docker/docker-py/pull/2857/commits/2e8975698eb3bc36cb037e601ee798eace9bcc53
-    # These patches can be dropped when the upstream PR is merged and released.
     - 0001-loosen-pywin32-pin.patch
-    - 0002-update-test-skips.patch
 
 build:
-  number: 2
+  noarch: python
+  number: 4
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python
+    - python >=3.7
     - pip
   run:
-    - python
+    - python >=3.7
     - requests >=2.14.2
     - six >=1.10.0
     - websocket-client >=0.32.0
     - docker-pycreds  >=0.3.0
-    - ssl_match_hostname >=3.5  # [py<35]
-    - ipaddress >=1.0.18  # [py<33]
-    - pywin32 >=227,<400  # [win and py>=36]
     - appdirs >=1.4.3
     - asn1crypto >=0.22.0
     - cffi >=1.10.0
     - cryptography >=1.9
     - docker-pycreds >=0.2.1
-    - enum34 >=1.1.6  # [py<34]
     - idna >=2.5
     - packaging >=16.8
     - pycparser >=2.17
     - pyopenssl >=17.0.0
     - pyparsing >=2.2.0
+    - pywin32-on-windows
     - websocket-client >=0.40.0
+  run_constrained:
+    - pywin32 >=227,<400
 
 test:
-  requires:
-    - setuptools
   imports:
     - docker
     - docker.api
@@ -58,18 +50,20 @@ test:
     - docker.utils.ports
     - docker.transport.unixconn
   commands:
-    - python -c "import docker; docker.DockerClient.from_env(version='auto')"  # [win]
-    - python -c "import pkg_resources; pkg_resources.require('docker')"  # [win]
+    - pip check
+  requires:
+    - pip
 
 about:
-  home: https://github.com/docker/docker-py/
+  home: https://github.com/docker/docker-py
+  summary: A Python library for the Docker Engine API.
+  dev_url: https://github.com/docker/docker-py
+  doc_url: https://docker-py.readthedocs.io
   license: Apache-2.0
   license_file: LICENSE
-  summary: Python client for Docker.
 
 extra:
   recipe-maintainers:
-    - pmlandwehr
     - ocefpaf
     - scopatz
     - mariusvniekerk
