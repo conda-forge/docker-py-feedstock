@@ -1,4 +1,4 @@
-{% set version = "6.0.0" %}
+{% set version = "6.1.0" %}
 
 package:
   name: docker-py
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/docker/docker-{{ version }}.tar.gz
-  sha256: 19e330470af40167d293b0352578c1fa22d74b34d3edf5d4ff90ebc203bbb2f1
+  sha256: cb697eccfeff55d232f7a7f4f88cd3770d27327c38d6c266b8f55c9f14a8491e
 
 build:
   noarch: python
