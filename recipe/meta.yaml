@@ -1,4 +1,4 @@
-{% set version = "7.0.0" %}
+{% set version = "7.1.0" %}
 
 package:
   name: docker-py
@@ -6,22 +6,21 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/docker/docker-{{ version }}.tar.gz
-  sha256: 323736fb92cd9418fc5e7133bc953e11a9da04f4483f828b527db553f1e7e5a3
+  sha256: ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python >=3.7
-    - setuptools >=45
-    - setuptools-scm >=6.2
+    - python >=3.8
+    - hatch
+    - hatch-vcs
     - pip
   run:
-    - python >=3.7
-    - packaging >=14.0
+    - python >=3.8
     - requests >=2.26.0
     - urllib3 >=1.26.0
     - websocket-client >=0.32.0
