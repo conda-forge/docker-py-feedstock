@@ -9,15 +9,16 @@ source:
   sha256: ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
+  noarch: python
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
     - python {{ python_min }}
-    - hatch
     - hatch-vcs
+    - hatchling
     - pip
   run:
     - python >={{ python_min }}
@@ -28,6 +29,9 @@ requirements:
     - paramiko >=2.4.3
 
 test:
+  requires:
+    - pip
+    - python {{ python_min }}
   imports:
     - docker
     - docker.api
@@ -38,9 +42,6 @@ test:
     - docker.transport.unixconn
   commands:
     - pip check
-  requires:
-    - pip
-    - python {{ python_min }}
 
 about:
   home: https://github.com/docker/docker-py
