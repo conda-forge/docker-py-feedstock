@@ -5,22 +5,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/d/docker/docker-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/d/docker/docker-{{ version }}.tar.gz
   sha256: ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
-    - python >=3.8
-    - hatch
+    - python {{ python_min }}
     - hatch-vcs
+    - hatchling
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - requests >=2.26.0
     - urllib3 >=1.26.0
     - websocket-client >=0.32.0
@@ -28,6 +29,9 @@ requirements:
     - paramiko >=2.4.3
 
 test:
+  requires:
+    - pip
+    - python {{ python_min }}
   imports:
     - docker
     - docker.api
@@ -38,8 +42,6 @@ test:
     - docker.transport.unixconn
   commands:
     - pip check
-  requires:
-    - pip
 
 about:
   home: https://github.com/docker/docker-py
