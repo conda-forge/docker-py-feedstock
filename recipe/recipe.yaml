@@ -32,6 +32,9 @@ requirements:
     - requests >=2.26.0
     - urllib3 >=1.26.0
     - websocket-client >=1.3.0
+  run_constraints:
+    # see https://github.com/conda-forge/pynacl-feedstock/pull/43
+    - cffi >=2.0.0
 
 tests:
   - python:
