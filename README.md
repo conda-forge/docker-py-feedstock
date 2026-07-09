@@ -3,7 +3,7 @@ About docker-py-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/docker-py-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/docker/docker-py
+Home: https://pypi.org/project/docker
 
 Package license: Apache-2.0
 
@@ -11,7 +11,7 @@ Summary: A Python library for the Docker Engine API.
 
 Development: https://github.com/docker/docker-py
 
-Documentation: https://docker-py.readthedocs.io
+Documentation: https://docker-py.readthedocs.io/
 
 Current build status
 ====================
